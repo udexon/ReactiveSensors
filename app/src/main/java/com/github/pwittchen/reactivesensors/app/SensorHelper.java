@@ -12,6 +12,8 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import java.util.Locale;
 
+import com.udexon.smashlet.Phos;
+
 class SensorHelper {
   private ReactiveSensors reactiveSensors;
   private int sensorType;
@@ -38,8 +40,16 @@ class SensorHelper {
             float y = event.values[1];
             float z = event.values[2];
 
+            Phos.F(": now_sec now: colon: explode:   2 ia: ;");
+
+            Phos.F("rae: t tk:  3 bzk:  " +
+                    "t_exists_retrieve_t t tr: now_sec dup: t t:  fsub:");
+
             String format = "%s readings:\n x = %f\n y = %f\n z = %f";
-            String message = String.format(Locale.getDefault(), format, sensorName, x, y, z);
+            String message = String.format(Locale.getDefault(), format, sensorName + "_Phos_" + Phos.S.peek() , x, y, z);
+
+            /// String message = String.format(Locale.getDefault(), format, sensorName, x, y, z);
+
             textViewForMessage.setText(message);
           }
         }, new Consumer<Throwable>() {
